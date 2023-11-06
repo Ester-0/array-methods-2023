@@ -297,23 +297,21 @@ const flightReservations = [
 
 // Usa el método forEach para iterar por cada uno de los vuelos y mostrarlos por consola
 
-//flightReservations.forEach((f) => { console.log("--Vuelos: ", f); });
+flightReservations.forEach((f) => { console.log("--Vuelos: ", f); });
 
 // Usa el método forEach para mostrar UNICAMENTE el pasajero de cada uno de lo vuelos
 
-//flightReservations.forEach((f) => { console.log("--Pasajero: ", f.passenger); });
+flightReservations.forEach((f) => { console.log("--Pasajero: ", f.passenger); });
 
 // Usa el método find para encontrar el primer vuelo de 'Delta Airlines'. Muestra por consola la clase de billete (economy, tourist, etc)
-// const flightDelta = flightReservations.find(
-//   (fr) => fr.airline == "Delta Airlines"
-// );
-// console.log("--Primer vuelo de Delta Airlines: ", flightDelta.ticketClass);
-
+const flightDelta = flightReservations.find(
+  (fr) => fr.airline == "Delta Airlines"
+);
+console.log("--Primer vuelo de Delta Airlines: ", flightDelta.ticketClass);
 
 // USa el método find para encontrar el vuelo número 'AA456'. Luego, muestra por consola el precio total de este vuelo
 
 const priceFly = flightReservations.find((f) => f.flightNumber == "AA456");
-
 console.log("--Que vale el vuelo AA456? ", priceFly.totalPrice);
 
 
@@ -336,11 +334,18 @@ console.log("--Que vuelos tienen la puerta de embarque D5? ", flightReservations
 
 // Usa el método filter para obtener todos los vuelos que incluyen menús con comida Vegan. BONUS: Muestra por consola el nombre de la aerolínea
 
-console.log();
+const aeroliniaVegana = flightReservations.filter((f) => f.specialMeals.includes("Vegan"));
+
+console.log("--Vuelos con comida Vegana?  ", aeroliniaVegana);
+console.log("--Aerolinia qeu ofrece comida Vegana? ", aeroliniaVegana[0].airline);
 
 // Usa el método map para convertir cada objeto en un string con el formato 'numero de vuelo'-'compañía area'´Ejemplo : "AA456-American Airlines"
 
+console.log("--Num vuelo + aerolinia: ", flightReservations.map((f) => `${f.flightNumber} - ${f.airline}`));
+
 // DIFICIL. USA el método reduce para sumar el conjunto total de puntos obtenidos de loyalyProgram de todos los tickets
+
+console.log("--Total puntos: ", flightReservations.reduce((total, f) => total + f.loyaltyProgram.points, 0));
 
 // DAme todos los vuelos de DElta Airlines. Para cada vuelo, quiero saber el ticketClass
 
@@ -349,6 +354,6 @@ const flightReservationDelta = flightReservations
   .map((fr) => fr.ticketClass);
 
 console.log(
-  "Dime todos los ticket Class de los vuelos American Airlines: ",
+  "--Dime todos los ticket Class de los vuelos American Airlines: ",
   flightReservationDelta
 );
