@@ -296,14 +296,14 @@ const flightReservations = [
 ];
 
 // 1. Usa el método forEach para iterar por cada uno de los vuelos y mostrarlos por consola:
-flightReservations.forEach((flight) =>
-  console.log(`Ejercicio 1: Vuelo Siguiente`, flight)
-);
+// flightReservations.forEach((flight) =>
+//   console.log(`Ejercicio 1: Vuelo Siguiente`, flight)
+// );
 
 // 2. Usa el método forEach para mostrar UNICAMENTE el pasajero de cada uno de los vuelos:
-flightReservations.forEach((flight) =>
-  console.log(`Ejercicio 2: Pasajero del vuelo siguiente:`, flight.passenger)
-);
+// flightReservations.forEach((flight) =>
+//   console.log(`Ejercicio 2: Pasajero del vuelo siguiente:`, flight.passenger)
+// );
 
 // 3. Usa el método find para encontrar el vuelo número 'AA456':
 const flightAA456 = flightReservations.find(

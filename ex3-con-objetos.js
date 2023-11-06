@@ -297,20 +297,58 @@ const flightReservations = [
 
 // Usa el método forEach para iterar por cada uno de los vuelos y mostrarlos por consola
 
+//flightReservations.forEach((f) => { console.log("--Vuelos: ", f); });
+
 // Usa el método forEach para mostrar UNICAMENTE el pasajero de cada uno de lo vuelos
+
+//flightReservations.forEach((f) => { console.log("--Pasajero: ", f.passenger); });
+
+// Usa el método find para encontrar el primer vuelo de 'Delta Airlines'. Muestra por consola la clase de billete (economy, tourist, etc)
+// const flightDelta = flightReservations.find(
+//   (fr) => fr.airline == "Delta Airlines"
+// );
+// console.log("--Primer vuelo de Delta Airlines: ", flightDelta.ticketClass);
+
 
 // USa el método find para encontrar el vuelo número 'AA456'. Luego, muestra por consola el precio total de este vuelo
 
+const priceFly = flightReservations.find((f) => f.flightNumber == "AA456");
+
+console.log("--Que vale el vuelo AA456? ", priceFly.totalPrice);
+
+
 // Usa el método find para encontrar el vuelo que ha reservado el señor bob.johnson@example.com. Muestra el objeto entero
+
+const bodReservation = flightReservations.find((f) => f.passenger.contactInfo.email == "bob.johnson@example.com");
+console.log("--Vuelo de Sr. Bob: ", bodReservation);
 
 // Usa el método some para averiguar si algún vuelo tiene como destino el aeropuerto de LPA GRAN CANARIA
 
+console.log("--Hay algun destino a Gran Canaria? ", flightReservations.some((f) => f.arrival.airport == "LPA GRAN CANARIA"));
+
 // Usa el método every para comprobar si todos los vuelos están confirmados (isConfirmed)
+
+console.log("--Estan todos los vuelos confirmados? ", flightReservations.every((f) => f.isConfirmed == true));
 
 // Usa el método filter para obtener todos los vuelos que tienen la puerta de embarque 'D5'
 
+console.log("--Que vuelos tienen la puerta de embarque D5? ", flightReservations.filter((f) => f.gate.includes("D5")));
+
 // Usa el método filter para obtener todos los vuelos que incluyen menús con comida Vegan. BONUS: Muestra por consola el nombre de la aerolínea
+
+console.log();
 
 // Usa el método map para convertir cada objeto en un string con el formato 'numero de vuelo'-'compañía area'´Ejemplo : "AA456-American Airlines"
 
 // DIFICIL. USA el método reduce para sumar el conjunto total de puntos obtenidos de loyalyProgram de todos los tickets
+
+// DAme todos los vuelos de DElta Airlines. Para cada vuelo, quiero saber el ticketClass
+
+const flightReservationDelta = flightReservations
+  .filter((fr) => fr.airline == "American Airlines")
+  .map((fr) => fr.ticketClass);
+
+console.log(
+  "Dime todos los ticket Class de los vuelos American Airlines: ",
+  flightReservationDelta
+);
